@@ -1,26 +1,126 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="chat">
+    <div class="side">
+      <div class="side-header">
+        <p>All Messages</p>
+      </div>
+      <div class="scroll">
+        <ChatContent></ChatContent>
+        <ChatContent></ChatContent>
+        <ChatContent></ChatContent>
+        <ChatContent></ChatContent>
+        <ChatContent></ChatContent>
+        <ChatContent></ChatContent>
+        <ChatContent></ChatContent>
+        <ChatContent></ChatContent>
+        <ChatContent></ChatContent>
+        <ChatContent></ChatContent>
+        <ChatContent></ChatContent>
+        <ChatContent></ChatContent>
+        <ChatContent></ChatContent>
+        <ChatContent></ChatContent>
+        <ChatContent></ChatContent>
+      </div>
+    </div>
+    <div class="main">
+      <Message></Message>
+
+      <div class="write-area">
+        <input
+          type="text"
+          class="write-input"
+          placeholder="Type message here"
+        />
+        <div class="btn">
+          <i class="material-icons">send</i>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ChatContent from "./components/ChatContent.vue";
+import Message from "./components/Message";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    ChatContent,
+    Message,
+  },
+};
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Comfortaa", cursive;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  background-color: #fff;
+}
+
+.chat {
+  display: grid;
+  grid-template-columns: 300px calc(100% - 300px);
+  grid-template-rows: 1fr;
+  grid-column-gap: 10px;
+  grid-template-areas: "side main";
+  height: 100vh;
+}
+
+.side {
+  grid-area: side;
+  font-weight: 600;
+  border-right: 1px solid #f1f1f1;
+}
+.main {
+  grid-area: main;
+}
+
+.side-header {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  color: #43434b;
+  border-bottom: 1px solid #43434b;
+  padding: 20px;
+}
+
+.scroll {
+  overflow-y: scroll;
+}
+
+.write-area {
+  /* width: 100%; */
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.write-input {
+  border: none;
+  outline: 0;
+  padding: 24px 20px;
+  flex-grow: 1;
+  max-width: calc(100% - 36px);
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 50%;
+  background-color: #1d7bc0;
+  color: #fff;
 }
 </style>
