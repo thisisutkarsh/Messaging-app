@@ -1,9 +1,22 @@
 <template>
-  <div class="chat-content">
-    <div class="avatar"></div>
+  <div
+    class="chat-content"
+    @click="toggleClass()"
+    :class="{ 'active-chat': isActive }"
+  >
+    <div
+      class="avatar"
+      @click="toggleClass()"
+      :class="{ 'active-avatar': isActive }"
+    ></div>
+
     <div class="info">
       <div class="info-header">
-        <div class="name">
+        <div
+          class="name"
+          @click="toggleClass()"
+          :class="{ 'active-name': isActive }"
+        >
           Anna Smith
         </div>
         <div class="time">
@@ -20,16 +33,16 @@
 <script>
 export default {
   name: "ChatContent",
+  data() {
+    return {
+      isActive: false,
+    };
+  },
+
   methods: {
-    isActive(e) {
-      e.target.classList.add("active-main");
+    toggleClass() {
+      this.isActive = !this.isActive;
     },
-    clicked(e) {
-      e.target.classList.add("active-avatar");
-    },
-    // isInactive(e) {
-    //   e.target.classList.remove("active-main");
-    // },
   },
 };
 </script>
@@ -56,8 +69,8 @@ export default {
 .info-header {
   display: flex;
   justify-content: space-between;
-  /* height: 64px; */
 }
+
 .name {
   font-size: 16px;
   color: #2c3e50;
@@ -72,17 +85,18 @@ export default {
   margin-top: 12px;
 }
 
-.chat-content:hover {
+.active-chat {
   border-right: 4px solid #1d30df;
   color: #2d3545;
-  background-color: #1396f3;
-}
-
-.name:hover {
   font-weight: bold;
 }
 
-.avatar:focus {
+.active-name {
+  color: #1d30df;
+  font-weight: bold;
+}
+
+.active-avatar {
   background-color: #707070;
 }
 </style>

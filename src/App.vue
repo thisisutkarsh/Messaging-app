@@ -1,6 +1,10 @@
 <template>
   <div class="chat">
-    <div class="side">
+    <div
+      class="side"
+      @click="displayClass()"
+      :class="{ 'active-name': isHidden }"
+    >
       <div class="side-header">
         <p>All Messages</p>
       </div>
@@ -29,8 +33,8 @@
     <div class="main">
       <div class="content">
         <div class="main-header">
-          <div class="back-btn">
-            <i class="material-icons">back</i>
+          <div class="back-btn" @click="isHidden = !isHidden">
+            <i class="material-icons"> arrow_back</i>
           </div>
           <div class="head-info">
             <div class="head-name">Anna Smith</div>
@@ -61,7 +65,7 @@ import Message from "./components/Message";
 export default {
   data() {
     return {
-      // isHidden: false,
+      isHidden: true,
     };
   },
   name: "App",
@@ -158,7 +162,7 @@ export default {
 .back-btn {
   cursor: pointer;
   margin-right: 20px;
-  display: none;
+  display: block;
   color: #434345;
 }
 /* Customizing main header */
@@ -194,13 +198,5 @@ export default {
 
 /* mobile view begin */
 @media (max-width: 600px) {
-  .main {
-    /* visibility: hidden; */
-  }
-
-  .side {
-    width: 0.2fr;
-    /* overflow: hidden; */
-  }
 }
 </style>
