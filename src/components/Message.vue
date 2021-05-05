@@ -1,34 +1,36 @@
 <template>
-  <div class="main-header">
-    <div class="info">
-      <div class="name">Anna Smith</div>
-      <div class="time">May 12, 2020</div>
+  <div class="content">
+    <div class="main-header">
+      <div class="info">
+        <div class="name">Anna Smith</div>
+        <div class="time">May 12, 2020</div>
+      </div>
     </div>
-  </div>
-  <div class="other">
-    <div class="avatar"></div>
-    <div class="main-content">
-      <div class="msg-box">
-        <p>Hello Everyone, Good Morning</p>
+    <div class="other">
+      <div class="avatar"></div>
+      <div class="main-content">
+        <div class="msg-box">
+          <p>Hello Everyone, Good Morning</p>
+        </div>
+        <div class="msg-box">
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. It has survived not
+            only five centuries.
+          </p>
+        </div>
+        <div class="sent">2 min ago</div>
       </div>
-      <div class="msg-box">
-        <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries.
-        </p>
-      </div>
-      <div class="sent">2 min ago</div>
     </div>
-  </div>
-  <div class="self">
-    <div class="main-content">
-      <div class="msg-box">
-        Hello Everyone, Good Morning
+    <div class="self">
+      <div class="main-content">
+        <div class="msg-box">
+          Hello Everyone, Good Morning
+        </div>
+        <div class="sent">1 min ago</div>
       </div>
-      <div class="sent">1 min ago</div>
     </div>
   </div>
 </template>
@@ -101,6 +103,7 @@ export default {
 
 .self {
   justify-content: flex-end;
+  padding: 15px;
 }
 
 .self .msg-box {
@@ -110,6 +113,10 @@ export default {
 }
 
 .main-content {
-  max-width: 75%;
+  max-width: 80%;
+}
+
+.content {
+  height: calc(100% - 64px - 44px);
 }
 </style>

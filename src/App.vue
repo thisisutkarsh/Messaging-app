@@ -67,11 +67,12 @@ export default {
 
 .chat {
   display: grid;
-  grid-template-columns: 300px calc(100% - 300px);
+  grid-template-columns: 300px 1fr;
   grid-template-rows: 1fr;
   grid-column-gap: 10px;
   grid-template-areas: "side main";
   height: 100vh;
+  width: 100%;
 }
 
 .side {
@@ -93,11 +94,11 @@ export default {
 }
 
 .scroll {
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
 
 .write-area {
-  /* width: 100%; */
+  width: 100%;
   padding: 0 20px;
   display: flex;
   justify-content: space-between;
@@ -105,11 +106,10 @@ export default {
 }
 
 .write-input {
-  border: none;
+  border: 1px solid #f1f1f1;
   outline: 0;
   padding: 24px 20px;
   flex-grow: 1;
-  max-width: calc(100% - 36px);
 }
 
 .btn {
@@ -117,8 +117,8 @@ export default {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  height: 36px;
-  min-width: 36px;
+  height: 30px;
+  min-width: 30px;
   border-radius: 50%;
   background-color: #1d7bc0;
   color: #fff;
