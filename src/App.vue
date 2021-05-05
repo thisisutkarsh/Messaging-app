@@ -20,6 +20,10 @@
         <ChatContent></ChatContent>
         <ChatContent></ChatContent>
         <ChatContent></ChatContent>
+        <ChatContent></ChatContent>
+        <ChatContent></ChatContent>
+        <ChatContent></ChatContent>
+        <ChatContent></ChatContent>
       </div>
     </div>
     <div class="main">
@@ -79,6 +83,7 @@ export default {
   grid-area: side;
   font-weight: 600;
   border-right: 1px solid #f1f1f1;
+  overflow-y: auto;
 }
 .main {
   grid-area: main;
@@ -91,10 +96,13 @@ export default {
   color: #43434b;
   border-bottom: 1px solid #43434b;
   padding: 20px;
+  height: 64px;
 }
 
 .scroll {
-  /* overflow-y: scroll; */
+  height: calc(100% - 64px);
+  width: 100%;
+  overflow-y: scroll;
 }
 
 .write-area {
@@ -122,5 +130,8 @@ export default {
   border-radius: 50%;
   background-color: #1d7bc0;
   color: #fff;
+}
+
+@media (max-width: 600px) {
 }
 </style>

@@ -56,6 +56,7 @@ export default {
 .info-header {
   display: flex;
   justify-content: space-between;
+  /* height: 64px; */
 }
 .name {
   font-size: 16px;
