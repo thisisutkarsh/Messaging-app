@@ -1,35 +1,31 @@
 <template>
   <div class="chat">
-    <div class="side" v-show="!isActive">
+    <div class="side" v-if="!isTrue">
       <div class="side-header">
         <p>All Messages</p>
       </div>
       <div class="scroll">
-        <ChatContent></ChatContent>
-        <ChatContent></ChatContent>
-        <ChatContent></ChatContent>
-        <ChatContent></ChatContent>
-        <ChatContent></ChatContent>
-        <ChatContent></ChatContent>
-        <ChatContent></ChatContent>
-        <ChatContent></ChatContent>
-        <ChatContent></ChatContent>
-        <ChatContent></ChatContent>
-        <ChatContent></ChatContent>
-        <ChatContent></ChatContent>
-        <ChatContent></ChatContent>
-        <ChatContent></ChatContent>
-        <ChatContent></ChatContent>
-        <ChatContent></ChatContent>
-        <ChatContent></ChatContent>
-        <ChatContent></ChatContent>
-        <ChatContent></ChatContent>
+        <ChatContent @click="toggleDisplay()"></ChatContent>
+        <ChatContent @click="toggleDisplay()"></ChatContent>
+        <ChatContent @click="toggleDisplay()"></ChatContent>
+        <ChatContent @click="toggleDisplay()"></ChatContent>
+        <ChatContent @click="toggleDisplay()"></ChatContent>
+        <ChatContent @click="toggleDisplay()"></ChatContent>
+        <ChatContent @click="toggleDisplay()"></ChatContent>
+        <ChatContent @click="toggleDisplay()"></ChatContent>
+        <ChatContent @click="toggleDisplay()"></ChatContent>
+        <ChatContent @click="toggleDisplay()"></ChatContent>
+        <ChatContent @click="toggleDisplay()"></ChatContent>
+        <ChatContent @click="toggleDisplay()"></ChatContent>
+        <ChatContent @click="toggleDisplay()"></ChatContent>
+        <ChatContent @click="toggleDisplay()"></ChatContent>
+        <ChatContent @click="toggleDisplay()"></ChatContent>
       </div>
     </div>
-    <div class="main" v-show="isHidden">
+    <div class="main" v-if="isTrue">
       <div class="content">
         <div class="main-header">
-          <div class="back-btn" @click="displayClass()">
+          <div class="back-btn" @click="toggleDisplay()">
             <i class="material-icons"> arrow_back</i>
           </div>
           <div class="head-info">
@@ -61,7 +57,8 @@ import Message from "./components/Message";
 export default {
   data() {
     return {
-      isHidden: true,
+      isHidden: false,
+      isTrue: false,
     };
   },
   name: "App",
@@ -70,8 +67,9 @@ export default {
     Message,
   },
   methods: {
-    displayClass() {
-      this.isHidden = !this.isHidden;
+    toggleDisplay() {
+      this.isTrue = !this.isTrue;
+      // console.log(this.isTrue);
     },
   },
 };
@@ -163,7 +161,7 @@ export default {
 .back-btn {
   cursor: pointer;
   margin-right: 20px;
-  display: none;
+  display: block;
   color: #434345;
 }
 /* Customizing main header */
@@ -203,6 +201,18 @@ export default {
     min-width: 100%;
     max-block-size: 100%;
   }
+  /* .main-hide {
+    visibility: hidden;
+  }
+  .side-show {
+    visibility: visible;
+  }
+  .main-show {
+    display: block;
+  }
+  .side-hide {
+    display: none;
+  } */
 
   .chat {
     display: block;

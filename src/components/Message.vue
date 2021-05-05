@@ -55,7 +55,7 @@ export default {
   width: fit-content;
   border-radius: 0 10px;
   background-color: #1d7bc0;
-  margin-bottom: 16px;
+  margin-bottom: 15px;
 }
 
 .sent {
