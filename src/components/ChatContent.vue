@@ -72,16 +72,17 @@ export default {
   margin-top: 12px;
 }
 
-.active-main {
+.chat-content:hover {
   border-right: 4px solid #1d30df;
   color: #2d3545;
+  background-color: #1396f3;
 }
 
-.active-name {
-  color: #1d30df;
+.name:hover {
+  font-weight: bold;
 }
 
-.active-avatar {
+.avatar:focus {
   background-color: #707070;
 }
 </style>

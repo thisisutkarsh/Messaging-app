@@ -27,7 +27,18 @@
       </div>
     </div>
     <div class="main">
-      <Message></Message>
+      <div class="content">
+        <div class="main-header">
+          <div class="back-btn">
+            <i class="material-icons">back</i>
+          </div>
+          <div class="head-info">
+            <div class="head-name">Anna Smith</div>
+            <div class="head-time">May 12, 2020</div>
+          </div>
+        </div>
+        <Message></Message>
+      </div>
 
       <div class="write-area">
         <input
@@ -48,6 +59,11 @@ import ChatContent from "./components/ChatContent.vue";
 import Message from "./components/Message";
 
 export default {
+  data() {
+    return {
+      // isHidden: false,
+    };
+  },
   name: "App",
   components: {
     ChatContent,
@@ -105,6 +121,7 @@ export default {
   overflow-y: scroll;
 }
 
+/* Customizing input-area */
 .write-area {
   width: 100%;
   padding: 0 20px;
@@ -120,6 +137,7 @@ export default {
   flex-grow: 1;
 }
 
+/* end */
 .btn {
   display: flex;
   justify-content: center;
@@ -132,6 +150,57 @@ export default {
   color: #fff;
 }
 
+/* main area */
+.content {
+  height: calc(100% - 64px - 44px);
+}
+
+.back-btn {
+  cursor: pointer;
+  margin-right: 20px;
+  display: none;
+  color: #434345;
+}
+/* Customizing main header */
+.main-header {
+  display: flex;
+  align-items: center;
+  color: #43434b;
+  padding: 20px;
+  font-size: 20px;
+  border-bottom: 1px solid #43434b;
+  height: 64px;
+  margin-bottom: 40px;
+}
+
+.head-info {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+.head-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+.head-time {
+  font-size: 12px;
+  margin-top: 4px;
+  font-weight: 400;
+}
+
+/* end */
+/* end */
+
+/* mobile view begin */
 @media (max-width: 600px) {
+  .main {
+    /* visibility: hidden; */
+  }
+
+  .side {
+    width: 0.2fr;
+    /* overflow: hidden; */
+  }
 }
 </style>
