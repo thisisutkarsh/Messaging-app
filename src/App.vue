@@ -1,10 +1,6 @@
 <template>
   <div class="chat">
-    <div
-      class="side"
-      @click="displayClass()"
-      :class="{ 'active-name': isHidden }"
-    >
+    <div class="side" v-show="!isActive">
       <div class="side-header">
         <p>All Messages</p>
       </div>
@@ -30,10 +26,10 @@
         <ChatContent></ChatContent>
       </div>
     </div>
-    <div class="main">
+    <div class="main" v-show="isHidden">
       <div class="content">
         <div class="main-header">
-          <div class="back-btn" @click="isHidden = !isHidden">
+          <div class="back-btn" @click="displayClass()">
             <i class="material-icons"> arrow_back</i>
           </div>
           <div class="head-info">
@@ -72,6 +68,11 @@ export default {
   components: {
     ChatContent,
     Message,
+  },
+  methods: {
+    displayClass() {
+      this.isHidden = !this.isHidden;
+    },
   },
 };
 </script>
@@ -162,7 +163,7 @@ export default {
 .back-btn {
   cursor: pointer;
   margin-right: 20px;
-  display: block;
+  display: none;
   color: #434345;
 }
 /* Customizing main header */
@@ -198,5 +199,23 @@ export default {
 
 /* mobile view begin */
 @media (max-width: 600px) {
+  .side {
+    min-width: 100%;
+    max-block-size: 100%;
+  }
+
+  .chat {
+    display: block;
+    border: none;
+    overflow: hidden;
+    min-width: 100%;
+    max-width: 100%;
+  }
+  .content {
+    height: 91vh;
+  }
+  .back-btn {
+    display: block;
+  }
 }
 </style>
